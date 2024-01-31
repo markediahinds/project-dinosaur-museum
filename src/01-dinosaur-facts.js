@@ -27,18 +27,25 @@ function getLongestDinosaur(dinosaurs) {
   let longestDinoName;
   
   for (let i = 0; i < dinosaurs.length; i++) {
-    let dinoHeight = dinosaurs[i].lengthInMeters;
+    let dinoHeight = dinosaurs[i].lengthInMeters * 3.281;
     let dinoName = dinosaurs[i].name;
 
     if (dinoHeight > longestHeight) {
       longestHeight = dinoHeight;
       longestDinoName = dinoName;
-    }
+    } 
   }
   return {[longestDinoName] : longestHeight}
-}
+}  
+
 
 console.log(getLongestDinosaur(exampleDinosaurData))
+
+destructuring 
+object.key
+
+{ object }
+
 /**
  * getDinosaurDescription()
  * ---------------------
