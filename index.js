@@ -1,59 +1,54 @@
 const exampleDinosaurData = require("./data/dinosaurs");
 /// Program your functions below //
 
-// * getLongestDinosaur()
-// * ---------------------
-// * Returns an object with the longest dinosaur from the list. Converts from meters to feet.
-// *
-// * NOTE: To convert from meters to feet, multiply the meters by `3.281`.
-// *
-// * @param {Object[]} dinosaurs - An array of dinosaur objects. See the `data/dinosaurs.js` file for an example of the input.
-// * @returns {Object} An object where the key is the name of the dinosaur and the value is the height of the dinosaur in feet.
-// *
-// * EXAMPLE:
-// *  getLongestDinosaur(dinosaurs);
-// *  //> { Brachiosaurus: 98.43 }
-// */
-function getLongestDinosaur(dinosaurs) {
-  let longestHeight = 0;
-  let longestDinoName;
-  
-  for (let i = 0; i < dinosaurs.length; i++) {
-    let dinoHeight = dinosaurs[i].lengthInMeters * 3.281;
-    let dinoName = dinosaurs[i].name;
+/**
+ * getDinosaurDescription()
+ * ---------------------
+ * Returns a formatted description of a dinosaur. If the dinosaur cannot be found, returns an error message.
+ *
+ * NOTE: Carefully view the test output and example below to see how the returned string should be formatted.
+ *
+ * NOTE: The `\n` represents a new line in text.
+ *
+ * @param {Object[]} dinosaurs - An array of dinosaur objects. See the `data/dinosaurs.js` file for an example of the input.
+ * @param {string} id - The unique identifier for the dinosaur.
+ * @returns {string} A detailed description of the dinosaur.
+ *
+ * EXAMPLE:
+ *  getDinosaurDescription(dinosaurs, "U9vuZmgKwUr");
+ *  //> "Xenoceratops (ZEE-no-SEH-ruh-tops)\nXenoceratops had horns and a bony frill with elaborate ornamentation of projections, knobs, and spikes. It lived in the Early Cretaceous period, over 77.5 million years ago."
+ *
+ *  getDinosaurDescription(dinosaurs, "incorrect-id");
+ *  //> "A dinosaur with an ID of 'incorrect-id' cannot be found."
+ */
+function getDinosaurDescription(dinosaurs, id) {
+let dinoName;
+let dinoPronunciation;
+let dinoInfo;
+let dinoPeriod;  
+let dinoYear;
 
-    if (dinoHeight > longestHeight) {
-      longestHeight = dinoHeight;
-      longestDinoName = dinoName;
-    } 
-    else {
-      return {};
+  for(let i = 0; i < dinosaurs.length; i++) {
+    if (dinosaurs[i].dinosaurId === id) {
+      dinoName = dinosaurs[i].name;
+      dinoPronunciation = dinosaurs[i].pronunciation;
+      dinoInfo = dinosaurs[i].info;
+      dinoPeriod = dinosaurs[i].period;
+      dinoYear = dinosaurs[i].mya[1];
+    
+    return `${dinoInfo} ${dinoPronunciation} \n It lived in the ${dinoPeriod}, over ${dinoYear.length === 1 ? dinoYear[0] : dinomya[1]} million years ago.`
     }
   }
-  return {[longestDinoName] : longestHeight}
 }
 
-console.log(getLongestDinosaur(exampleDinosaurData))
 
-
-/ function getLongestDinosaur(dinosaurs) {
-    let longestDino = dinosaurs[0];
-    for (let dino of dinosaurs) {
-      if (dino.lengthInMeters > longestDino.lengthInMeters) {
-        longestDino = dino;
-      }
-    }
-    let lengthInFeet = longestDino.lengthInMeters * 3.281;
-    let result = {};
-    result[longestDino.name]  = lengthInFeet;
-    return result;
-  }
+console.log(getDinosaurDescription(exampleDinosaurData, 'U9vuZmgKwUr'))
   
-  function getLongestDinosaur(dinosaurs) {
-    let lengths = dinosaurs.map(dino => dino.lengthInMeters);
-    let maxLength = Math.max(...lengths);
-    let longestDino = dinosaurs.find(dino => dino.lengthInMeters === maxLength);
-    let lengthInFeet = maxLength * 3.281;
-    let result = {};
-    result[longestDino.name] = lengthInFeet;
-    return result;
+// checking if the dinosaur id = dinosaur ID
+// string concatnate 
+// } else  {    
+  //   return `A dinosaur with an ID of 'incorrect-id' cannot be found.`
+  // }
+
+  // if (dinosaurs[i].dinosaurId !== id) return `A dinosaur with an ID of 'incorrect-id' cannot be found.
+  // in condition check if it's 1 or 2, check length  

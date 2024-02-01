@@ -25,6 +25,8 @@ const exampleDinosaurData = require("../data/dinosaurs");
 function getLongestDinosaur(dinosaurs) {
   let longestHeight = 0;
   let longestDinoName;
+  if(dinosaurs.length === 0) return {}
+  
   
   for (let i = 0; i < dinosaurs.length; i++) {
     let dinoHeight = dinosaurs[i].lengthInMeters * 3.281;
@@ -35,16 +37,14 @@ function getLongestDinosaur(dinosaurs) {
       longestDinoName = dinoName;
     } 
   }
+ 
   return {[longestDinoName] : longestHeight}
 }  
 
 
 console.log(getLongestDinosaur(exampleDinosaurData))
 
-destructuring 
-object.key
 
-{ object }
 
 /**
  * getDinosaurDescription()
@@ -66,7 +66,25 @@ object.key
  *  getDinosaurDescription(dinosaurs, "incorrect-id");
  *  //> "A dinosaur with an ID of 'incorrect-id' cannot be found."
  */
-function getDinosaurDescription(dinosaurs, id) {}
+function getDinosaurDescription(dinosaurs, id) {
+  let dinoName;
+  let dinoPronunciation;
+  let dinoInfo;
+  let dinoPeriod;  
+  let dinoYear;
+  
+    for(let i = 0; i < dinosaurs.length; i++) {
+      if (dinosaurs[i].dinosaurId === id) {
+        dinoName = dinosaurs[i].name;
+        dinoPronunciation = dinosaurs[i].pronunciation;
+        dinoInfo = dinosaurs[i].info;
+        dinoPeriod = dinosaurs[i].period;
+        dinoYear = dinosaurs[i].mya[0];
+      
+      return `${dinoInfo} ${dinoPronunciation} \n It lived in the ${dinoPeriod}, over ${dinoYear.length === 1 ? dinoYear[0] : dinomya[1]} million years ago.`
+      }
+    }
+  }
 
 /**
  * getDinosaursAliveMya()
