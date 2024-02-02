@@ -79,11 +79,12 @@ function getDinosaurDescription(dinosaurs, id) {
         dinoPronunciation = dinosaurs[i].pronunciation;
         dinoInfo = dinosaurs[i].info;
         dinoPeriod = dinosaurs[i].period;
-        dinoYear = dinosaurs[i].mya[0];
+        dinoYear = dinosaurs[i].mya;
       
-      return `${dinoInfo} ${dinoPronunciation} \n It lived in the ${dinoPeriod}, over ${dinoYear.length === 1 ? dinoYear[0] : dinomya[1]} million years ago.`
+      return `${dinoName} (${dinoPronunciation})\n${dinoInfo} It lived in the ${dinoPeriod} period, over ${dinoYear[dinoYear.length-1]} million years ago.`
       }
     }
+      return `A dinosaur with an ID of 'incorrect-id' cannot be found.`
   }
 
 /**
