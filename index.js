@@ -1,4 +1,5 @@
-const exampleDinosaurData = require("../data/dinosaurs");
+const exampleDinosaurData = require("./data/dinosaurs");
+// Do not change the line above.
 
 /**
  * getDinosaursAliveMya()
@@ -28,21 +29,16 @@ const exampleDinosaurData = require("../data/dinosaurs");
 function getDinosaursAliveMya(dinosaurs, mya, key) {
   let dinoArr = [];
   for (let i = 0; i < dinosaurs.length; i++) {
-    for (let j = 0; j < dinosaurs.mya.length; j++) {
-      if (key === dinosaurs.mya) {
-        dinoArr.push(dinosaurs.mya) 
-        console.log(dinoArr)
+      if (mya === dinosaurs[i].mya[0] || mya === dinosaurs[i].mya.length-1) {
+        dinoArr.push(dinosaurs[i]); 
+    }
+    if (key === dinosaurs.length; i++) {
+      
     }
   }
-  console.log(dinoArr)
+  console.log()
+  
+  }
 
-}
-}
-
-module.exports = {
-  getLongestDinosaur,
-  getDinosaurDescription,
-  getDinosaursAliveMya,
-};
-
-console.log(getDinosaursAliveMya(exampleDinosaurData, 65, 'name'))
+  
+  console.log(getDinosaursAliveMya(exampleDinosaurData, 156, 'name'))
