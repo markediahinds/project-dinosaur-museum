@@ -1,44 +1,48 @@
 const exampleDinosaurData = require("./data/dinosaurs");
-// Do not change the line above.
+const exampleRoomData = require("./data/rooms");
 
-/**
- * getDinosaursAliveMya()
- * ---------------------
- * Returns an array of dinosaurs who were alive at the given `mya` (i.e. "millions of years ago") value. If a `key` is provided, returns the value of that key for each dinosaur alive at that time. Otherwise, returns the ID.
- *
- * If the dinosaur only has a single value for `mya`, allows for the `mya` value to be equal to the given value or one less. For example, if a dinosaur has a `mya` value of `[29]`, the dinosaur's information will be returned if `29` is entered or `28` is entered.
- *
- * @param {Object[]} dinosaurs - An array of dinosaur objects. See the `data/dinosaurs.js` file for an example of the input.
- * @param {number} mya - "Millions of years ago."
- * @param {string} key - An optional parameter. If included, for dinosaurs that lived during the `mya` value given, will return the value of the supplied key. Otherwise, returns the ID.
- * @returns {*[]} An array of values, which depend on the key given. The array should only include data of dinosaurs who lived during the given time period.
- *
- * EXAMPLE:
- *  getDinosaursAliveMya(dinosaurs, 150);
- *  //> ["YLtkN9R37", "GGvO1X9Zeh", "BFjjLjea-O", "V53DvdhV2A"]
- *
- *  getDinosaursAliveMya(dinosaurs, 65);
- *  //> ["WHQcpcOj0G"]
- *
- *  getDinosaursAliveMya(dinosaurs, 65, "name");
- *  //> ["Dracorex"]
- *
- *  getDinosaursAliveMya(dinosaurs, 65, "unknown-key");
- *  //> ["WHQcpcOj0G"]
- */
-function getDinosaursAliveMya(dinosaurs, mya, key) {
-  let dinoArr = [];
-  for (let i = 0; i < dinosaurs.length; i++) {
-      if (mya === dinosaurs[i].mya[0] || mya === dinosaurs[i].mya.length-1) {
-        dinoArr.push(dinosaurs[i]); 
-    }
-    if (key === dinosaurs.length; i++) {
-      
-    }
-  }
-  console.log()
-  
-  }
+// getRoomByDinosaurName()
+//  * ---------------------
+//  * Return the name of the room where the given dinosaur can be found. If the dinosaur does not exist in the `dinosaurs` list or cannot be found in any room, return an error message that says so.
+//  *
+//  * @param {Object[]} dinosaurs - An array of dinosaur objects. See the `data/dinosaurs.js` file for an example of the input.
+//  * @param {Object[]} rooms - An array of room objects. See the `data/rooms.js` file for an example of the input.
+//  * @param {string} dinosaurName - The name of the dinosaur.
+//  * @returns {string} The name of the room where the dinosaur can be found. Alternatively, an error message.
+//  *
+//  * EXAMPLE:
+//  *  getRoomByDinosaurName(dinosaurs, rooms, "Tyrannosaurus");
+//  *  //> "Roberts Room"
+//  *
+//  * EXAMPLE:
+//  *  getRoomByDinosaurName(dinosaurs, rooms, "Pterodactyl");
+//  *  //> "Dinosaur with name 'Pterodactyl' cannot be found."
 
+function getRoomByDinosaurName(dinosaurs, rooms, dinosaurName) {
+  let dinoRoom = '';
+  let errorMes = `Dinosaur with name ${dinosaurName} cannot be found.`
+  let dinoId; 
   
-  console.log(getDinosaursAliveMya(exampleDinosaurData, 156, 'name'))
+    for (let i = 0; i < dinosaurs.length; i++) {
+      if (dinosaurName = dinosaurs[i].name) {
+        dinoId = dinosaurs[i].dinosaurId
+      }
+    }
+
+    for (let j = 0; j < rooms.length; j++) {
+      for (let k = 0; k < rooms[j].dinosaurs.length; k++)
+      if (rooms[j].dinosaurs.includes(dinoId)) {
+        return rooms[j].name
+      }
+    }
+  
+  
+  //   const findId = rooms.find((ID) => ID.dinosaurs.includes(dinoId));
+  // console.log(findId.name);
+
+}
+
+console.log(getRoomByDinosaurName(exampleDinosaurData, exampleRoomData, "Tyrannosaurus"))
+
+// PEDAC -- 
+// THIS MY DATA, THIS WHAT PROB IS ASKING, DEVISE PLAN BASED ON DATA

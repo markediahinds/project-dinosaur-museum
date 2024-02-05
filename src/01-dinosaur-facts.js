@@ -22,14 +22,14 @@ const exampleDinosaurData = require("../data/dinosaurs");
  *  getLongestDinosaur(dinosaurs);
  *  //> { Brachiosaurus: 98.43 }
  */
-function getLongestDinosaur(dinosaurs) {
+function getLongestDinosaur(dinosaurs) { // large data set
   let longestHeight = 0;
   let longestDinoName;
-  if(dinosaurs.length === 0) return {}
+  if(dinosaurs.length === 0) return {};
   
   
   for (let i = 0; i < dinosaurs.length; i++) {
-    let dinoHeight = dinosaurs[i].lengthInMeters * 3.281;
+    let dinoHeight = dinosaurs[i].lengthInMeters * 3.281; // meters to feet
     let dinoName = dinosaurs[i].name;
 
     if (dinoHeight > longestHeight) {
@@ -38,7 +38,7 @@ function getLongestDinosaur(dinosaurs) {
     } 
   }
  
-  return {[longestDinoName] : longestHeight}
+  return {[longestDinoName] : longestHeight} // why use [] : what is stored in the variable instead of var name | 
 }  
 
 
