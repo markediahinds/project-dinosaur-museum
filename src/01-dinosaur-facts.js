@@ -114,24 +114,24 @@ function getDinosaurDescription(dinosaurs, id) {
  *  getDinosaursAliveMya(dinosaurs, 65, "unknown-key");
  *  //> ["WHQcpcOj0G"]
  */
-function getDinosaursAliveMya(dinosaurs, mya, key) {
-let dinoArr = [];
-for (let i = 0; i < dinosaurs.length; i++) {
-    if (mya === dinosaurs[i].mya[0] || mya === dinosaurs[i].mya.length-1) {
-      dinoArr.push(dinosaurs[i]); 
-  }
-  if (key === dinosaurs.length; i++) {
+// function getDinosaursAliveMya(dinosaurs, mya, key) {
+// let dinoArr = [];
+// for (let i = 0; i < dinosaurs.length; i++) {
+//     if (mya === dinosaurs[i].mya[0] || mya === dinosaurs[i].mya.length-1) {
+//       dinoArr.push(dinosaurs[i]); 
+//   }
+//   if (key === dinosaurs.length; i++) {
     
-  }
-}
-console.log()
+//   }
+// }
+// console.log()
 
-}
+// }
 
 module.exports = {
 getLongestDinosaur,
 getDinosaurDescription,
-getDinosaursAliveMya,
+// getDinosaursAliveMya,
 };
 
-console.log(getDinosaursAliveMya(exampleDinosaurData, 156, 'name'))
+// console.log(getDinosaursAliveMya(exampleDinosaurData, 156, 'name'))

@@ -170,15 +170,15 @@ module.exports = {
 //  *  //> "Dinosaur with name 'Pterodactyl' cannot be found."
 
 function getRoomByDinosaurName(dinosaurs, rooms, dinosaurName) {
-  let dinoRoom = '';
-  let errorMes = `Dinosaur with name ${dinosaurName} cannot be found.`
-  let dinoId; 
-  
-    for (let i = 0; i < dinosaurs.length; i++) {
-      if (dinosaurName = dinosaurs[i].name) {
-        dinoId = dinosaurs[i].dinosaurId
-      }
+  for (let i = 0; i < dinosaurs.length; i++) {
+    if (dinosaurName === dinosaurs[i].name) {
+      dinoName = dinosaurs[i].name;
+      dinoId = dinosaurs[i].dinosaurId;
     }
+  }
+  if (!dinosaurName === dinoName) {
+  return `Dinosaur with name ${dinosaurName} cannot be found.`
+  }
 
     for (let j = 0; j < rooms.length; j++) {
       for (let k = 0; k < rooms[j].dinosaurs.length; k++)
@@ -187,8 +187,27 @@ function getRoomByDinosaurName(dinosaurs, rooms, dinosaurName) {
       }
     }
   
-  
-  //   const findId = rooms.find((ID) => ID.dinosaurs.includes(dinoId));
+  // Moka Stretch!  My first time using a native array method since Native Array Lab #1
+  // const findId = rooms.find((ID) => ID.dinosaurs.includes(dinoId));
   // console.log(findId.name);
+
+}
+
+// PEDAC -- 2/5 -- Coach Joshua: 
+// THIS MY DATA, THIS WHAT PROB IS ASKING, DEVISE PLAN BASED ON DATA
+
+// 2/7 Coach Joshua:
+// let dinoObj = dinosaurs.find(dino => dino.name === dinosaurName) // dinosaurs = arr of objs AND dino = the object/it's each element within the global structure; can be with or without parentheses
+// if(!dinoObj) {
+//   return `Dinosaur with name ${dinosaurName} cannot be found.`
+// }
+const dinoID = dinoObj.dinosaurId;
+let foundRoom = rooms.find(room => room.dinosaurs.includes(dinoId))
+if (foundRoom) {
+  return foundRoom.name {
+    else {
+      Dinosaur 
+    }
+  }
 
 }

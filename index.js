@@ -21,11 +21,13 @@ const exampleRoomData = require("./data/rooms");
 function getRoomByDinosaurName(dinosaurs, rooms, dinosaurName) {
   let dinoRoom = '';
   let errorMes = `Dinosaur with name ${dinosaurName} cannot be found.`
-  let dinoId; 
+  let dinoName;
+  let dinoId;
   
     for (let i = 0; i < dinosaurs.length; i++) {
-      if (dinosaurName = dinosaurs[i].name) {
+      if (dinosaurName === dinosaurs[i].name) {
         dinoId = dinosaurs[i].dinosaurId
+        return `Dinosaur with name ${dinosaurName} cannot be found.`
       }
     }
 
@@ -36,7 +38,6 @@ function getRoomByDinosaurName(dinosaurs, rooms, dinosaurName) {
       }
     }
   
-  
   //   const findId = rooms.find((ID) => ID.dinosaurs.includes(dinoId));
   // console.log(findId.name);
 
@@ -44,5 +45,3 @@ function getRoomByDinosaurName(dinosaurs, rooms, dinosaurName) {
 
 console.log(getRoomByDinosaurName(exampleDinosaurData, exampleRoomData, "Tyrannosaurus"))
 
-// PEDAC -- 
-// THIS MY DATA, THIS WHAT PROB IS ASKING, DEVISE PLAN BASED ON DATA
