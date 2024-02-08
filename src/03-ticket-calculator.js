@@ -5,8 +5,21 @@
 
   Keep in mind that your functions must still have and use a parameter for accepting all tickets.
 */
+const tickets = require("../data/tickets");
 const exampleTicketData = require("../data/tickets");
 // Do not change the line above.
+data to start: 
+1. obj of objs with prices to enter musee 
+2. obj representing a single tix
+3. str rep type of tix - except extras
+4. str rep type of entrant - price changes
+5. arr of str rep diff extras the can be added
+prob return: 
+1. tix price based tix info entered into params
+2. tix price (as a number)
+3. error messages for: value incorrect or value extras incorrect
+plan: 
+
 
 /**
  * calculateTicketPrice()
